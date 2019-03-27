@@ -1,4 +1,5 @@
 # cascadebot website
 
-written in typescript.
-it includes user panel for bot customisations and normal website for docs
+Source of the cascadebot website.
+
+Typescript ExpressJs server, passportJS for discord authentication. Dashboard runs with vuejs (also typescript). 
