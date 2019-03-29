@@ -1,7 +1,9 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import ServerSelect from './views/ServerSelect.vue';
-import About from './views/About.vue';
+import ServerSettings from './views/ServerSettings.vue';
+import ServerSettingsGeneral from './views/ServerSettingsGeneral.vue';
+import ServerSettingsModlog from './views/ServerSettingsModlog.vue';
 
 Vue.use(Router);
 
@@ -17,7 +19,27 @@ export default new Router({
     {
       path: '/configure/:id',
       name: 'configure',
-      component: About,
+      redirect: '/configure/:id/general',
+      components: {
+        default: ServerSettings,
+        serverSettingsContent: ServerSettingsGeneral,
+      },
+      children: [
+        {
+          path: 'modlog',
+          components: {
+            default: ServerSettings,
+            serverSettingsContent: ServerSettingsModlog,
+          },
+        },
+        {
+          path: 'general',
+          components: {
+            default: ServerSettings,
+            serverSettingsContent: ServerSettingsGeneral,
+          },
+        },
+      ],
     },
     {
       path: '/about',
