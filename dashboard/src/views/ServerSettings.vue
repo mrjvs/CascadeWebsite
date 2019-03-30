@@ -1,6 +1,6 @@
 <template>
     <div class="serverSettings">
-        <ServerSettingsNav />
+        <ServerSettingsNav :server="servers[$route.params.id]" />
         <div class="content">
             <router-view name="serverSettingsContent" />
         </div>
@@ -8,7 +8,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { Prop, Component, Vue } from 'vue-property-decorator';
 import ServerSettingsNav from '@/components/ServerSettingsNav.vue';
 
 @Component({
@@ -16,7 +16,9 @@ import ServerSettingsNav from '@/components/ServerSettingsNav.vue';
     ServerSettingsNav,
   },
 })
-export default class ServerSettings extends Vue {}
+export default class ServerSettings extends Vue {
+    @Prop() private servers!: object[];
+}
 </script>
 
 <style scoped lang="scss">

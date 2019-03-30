@@ -1,5 +1,6 @@
 <template>
     <div class="serverSettingsNav">
+        <ServerSettingsInfo :server="server"/>
         <div class="links">
             <router-link to="general">General</router-link>
             <router-link to="modlog">Modlog</router-link>
@@ -8,10 +9,17 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { Prop, Component, Vue } from 'vue-property-decorator';
+import ServerSettingsInfo from '@/components/ServerSettingsInfo.vue';
 
-@Component
-export default class ServerSettingsNav extends Vue {}
+@Component({
+    components: {
+        ServerSettingsInfo,
+    },
+})
+export default class ServerSettingsNav extends Vue {
+    @Prop() private server!: object;
+}
 </script>
 
 <style scoped lang="scss">

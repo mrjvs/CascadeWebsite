@@ -1,22 +1,35 @@
 <template>
-  <div class="serverSelect">
-    <div class="nav">
-      <h1>Server select</h1>
-      <button>Add server</button>
+    <div class="serverSelect">
+        <ServerSelectHeader />
+        <div class="servers" :key="server.id" v-for="server in servers">
+            <ServerItem :server="server"></ServerItem>
+        </div>
     </div>
-    <ServerItem name="A server" membercount="777" id="12345678910"></ServerItem>
-    <ServerItem name="Another server" membercount="666" id="1231231231"></ServerItem>
-  </div>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { Prop, Component, Vue } from 'vue-property-decorator';
 import ServerItem from '@/components/ServerItem.vue';
+import ServerSelectHeader from '@/components/ServerSelectHeader.vue';
 
 @Component({
-  components: {
-    ServerItem,
-  },
+    components: {
+        ServerItem,
+        ServerSelectHeader,
+    },
 })
-export default class ServerSelect extends Vue {}
+export default class ServerSelect extends Vue {
+    @Prop() private servers!: object[];
+}
 </script>
+
+<style scoped lang="scss">
+    .serverSelect {
+        margin: 10rem 20vw;
+
+        .servers {
+            display: flex;
+            flex-wrap: wrap;
+        }
+    }
+</style>
