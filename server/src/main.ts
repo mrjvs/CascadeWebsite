@@ -2,6 +2,7 @@ import express from "express";
 import { Request, Response } from "express";
 import cookieParser from "cookie-parser";
 import vhost from "vhost";
+import cors from "cors";
 import passport from "passport";
 import session from 'express-session';
 import { Strategy as DiscordStrategy } from "passport-discord";
@@ -32,15 +33,18 @@ import dashboardRouter from "./routes/dashboard";
 import apiRouter from "./routes/api";
 
 const app: express.Application = express();
+app.use(cors({
+    origin: /\.cascadebot\.org$/,
+    credentials: true,
+}));
 app.use(cookieParser());
-app.use(express.urlencoded());
-
+app.use(express.json());
 app.use(session({
 	secret: sessionSecret,
 	saveUninitialized: true,
 	resave: true,
 	cookie: {
-		maxAge: 3600000,
+        maxAge: 3600000,
 		httpOnly: true//, // remove on production
 		/*secure: true*/ // uncomment on production
 	},

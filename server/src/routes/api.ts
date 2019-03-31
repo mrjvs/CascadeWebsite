@@ -26,8 +26,8 @@ function loggedIn(req: Request, res: Response, next: NextFunction) {
     if (req.user) {
         next();
     } else {
-        res.status(502).json({
-            code: 502,
+        res.status(403).json({
+            code: 403,
             error: "not authenticated",
         });
     }
@@ -53,12 +53,12 @@ apiRouter.get('/gettoken', loggedIn, ( req: Request, res: Response) => {
 });
 
 apiRouter.post('/istokenvalid', ( req: Request, res: Response) => {
-    if (req.params.time + signatureTimeframe <= new Date().getTime()) {
+    if (parseInt(req.body.creation) + signatureTimeframe <= new Date().getTime()) {
         return res.json({
             valid: false,
         })
     }
-    const isValid = req.params.signature === getSignature(req.params.userID, getTimedSecret(req.params.creation));
+    const isValid = (req.body.signature == getSignature(req.body.userID, getTimedSecret(req.body.creation)).signature);
     return res.json({
         valid: isValid,
     });

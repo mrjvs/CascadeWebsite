@@ -1,15 +1,27 @@
 <template>
     <div class="serverSelectHeader">
-        <img src="#" 
         <h1 class="heading">My servers</h1>
-        <button class="addServer btn">Add server</button>
+        <button v-on:click="getUser" class="addServer btn">Add server</button>
     </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
+import { auth } from "@/api";
+import axios from "axios";
 
-@Component
+@Component({
+    methods: {
+        getUser() {
+            axios.get('//api.cascadebot.org/me', {
+                withCredentials: true
+            }).then((user: any) => {
+                console.log(user.data);
+                (this as any).user = user.data;
+            });
+        }
+    }
+})
 export default class ServerSelectHeader extends Vue {}
 </script>
 

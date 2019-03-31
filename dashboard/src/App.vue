@@ -6,6 +6,7 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
+import { cascade, auth } from '@/api';
 
 @Component({
     data() {
@@ -21,10 +22,15 @@ import { Component, Vue } from 'vue-property-decorator';
             user: {
                 id: 1243568790,
                 username: 'mrjvs',
-                discrim: 2165,
+                discriminator: 7777,
                 image: 'https://cdn.discordapp.com/icons/196618637950451712/d14087d74031ef5bc5b825b74e64333a.png',
             },
         };
+    },
+    async created() {
+        const token = await auth.getToken();
+        console.log(token.data);
+        console.log( (await auth.isTokenValid(token.data)).data );
     },
 })
 export default class Dashboard extends Vue {}

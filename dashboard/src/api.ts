@@ -1,3 +1,5 @@
+import axios from "axios";
+
 // returns servers with title and member count.
 export function getServers(): string {
     // TODO: get graphql server to make this.
@@ -16,11 +18,32 @@ export function isAuthenticated(): boolean {
     return false;
 }
 
-export const auth: object = {
+export async function isTokenValid(token: any): Promise<any> {
+    const result = await axios.post('//api.cascadebot.org/istokenvalid', {
+        creation: token.creation,
+        userID: token.userID,
+        signature: token.signature,
+    },{
+        withCredentials: true,
+    });
+
+    return result;
+}
+
+export async function getToken(): Promise<any> {
+    const result = await axios.get('//api.cascadebot.org/gettoken', {
+        withCredentials: true
+    });
+    return result;
+}
+
+export const auth: any = {
     isAuthenticated,
+    getToken,
+    isTokenValid,
 };
 
-export const cascade: object = {
+export const cascade: any = {
     getServers,
     getServerData,
 };

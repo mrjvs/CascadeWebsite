@@ -1,7 +1,7 @@
 <template>
     <div class="userCard">
         <img :src="user.image" :alt="user.username" class="image" />
-        <p class="name"><span>{{ user.username }}</span>#{{ user.discrim }}</p>
+        <p class="name"><span>{{ user.username }}</span>#{{ user.discriminator }}</p>
     </div>
 </template>
 
