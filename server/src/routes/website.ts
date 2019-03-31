@@ -8,10 +8,10 @@ websiteRouter.get("/", (req: Request, res: Response) => {
     res.sendFile("index.html", { root: path.join(__dirname, "../../../website") });
 });
 
-websiteRouter.get("/about", (req: Request, res: Response) => {
-    res.sendFile("about.html", { root: path.join(__dirname, "../../../website") });
-});
-
 websiteRouter.use(express.static(path.join(__dirname, "../../../website/public")));
+
+websiteRouter.use((req: Request, res: Response) => {
+    res.sendFile("404.html", { root: path.join(__dirname, "../../../website") });
+})
 
 export default websiteRouter;
