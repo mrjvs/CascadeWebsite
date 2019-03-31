@@ -1,0 +1,20 @@
+{
+  "name": "cascadewebsite",
+  "version": "0.1.0",
+  "description": "webserver for cascadebot",
+  "main": "server/dist/main.js",
+  "scripts": {
+    "run": "node server/dist/main.js",
+    "build": "cd dashboard && npm run build && cd ./server && npm run prod"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CascadeBot/CascadeWebsite.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CascadeBot/CascadeWebsite/issues"
+  },
+  "homepage": "https://github.com/CascadeBot/CascadeWebsite#readme"
+}

@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAmBA,AAAA,UAAU,AAAC,CACP,gBAAgB,CApBZ,OAAO,CAqBd,AACD,AAAA,cAAc,AAAC,CACX,gBAAgB,CAtBZ,OAAO,CAuBd,AACD,AAAA,SAAS,AAAC,CACN,gBAAgB,CAhBV,IAAK,CAiBd",
+    "sources": [
+        "../scss/colors.scss"
+    ],
+    "names": [],
+    "file": "colors.min.css"
+}
