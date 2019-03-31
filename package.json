@@ -5,7 +5,7 @@
   "main": "server/dist/main.js",
   "scripts": {
     "run": "node server/dist/main.js",
-    "build": "cd dashboard && npm run build && cd ./server && npm run prod"
+    "build": "cd dashboard && npm run build && cd ../server && npm run build"
   },
   "repository": {
     "type": "git",
