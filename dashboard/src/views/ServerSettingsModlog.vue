@@ -1,12 +1,17 @@
 <template>
   <div class="serverSettingsModlog">
-      <h1>Modlog page or smth</h1>
+      <Title msg="Moderation log" />
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
+import Title from '@/components/settings/Title.vue';
 
-@Component
+@Component({
+  components: {
+    Title,
+  },
+})
 export default class ServerSettingsModlog extends Vue {}
 </script>

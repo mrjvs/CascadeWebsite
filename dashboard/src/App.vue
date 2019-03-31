@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-        <router-view :servers="servers" />
+        <router-view :servers="servers" :user="user"/>
     </div>
 </template>
 
@@ -17,6 +17,12 @@ import { Component, Vue } from 'vue-property-decorator';
                     members: 777,
                     image: 'https://cdn.discordapp.com/icons/196618637950451712/d14087d74031ef5bc5b825b74e64333a.png',
                 },
+            },
+            user: {
+                id: 1243568790,
+                username: 'mrjvs',
+                discrim: 2165,
+                image: 'https://cdn.discordapp.com/icons/196618637950451712/d14087d74031ef5bc5b825b74e64333a.png',
             },
         };
     },

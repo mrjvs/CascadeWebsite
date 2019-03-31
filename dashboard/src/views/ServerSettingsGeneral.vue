@@ -1,12 +1,17 @@
 <template>
   <div class="serverSettingsGeneral">
-      <h1>Server Settings</h1>
+      <Title msg="General settings" />
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
+import Title from '@/components/settings/Title.vue';
 
-@Component
+@Component({
+  components: {
+    Title,
+  },
+})
 export default class ServerSettingsGeneral extends Vue {}
 </script>

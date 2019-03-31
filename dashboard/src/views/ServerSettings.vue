@@ -1,6 +1,6 @@
 <template>
     <div class="serverSettings">
-        <ServerSettingsNav :server="servers[$route.params.id]" />
+        <ServerSettingsNav :server="servers[$route.params.id]" :user="user" />
         <div class="content">
             <router-view name="serverSettingsContent" />
         </div>
@@ -18,17 +18,17 @@ import ServerSettingsNav from '@/components/ServerSettingsNav.vue';
 })
 export default class ServerSettings extends Vue {
     @Prop() private servers!: object[];
+    @Prop() private user!: object[];
 }
 </script>
 
 <style scoped lang="scss">
     .serverSettings {
-        display: flex;
-        height: 100%;
+        min-height: 100%;
 
         .content {
-            margin-left: 31rem;
-            padding: 2em 1em;
+            margin-left: 35vw;
+            padding: 4rem;
         }
     }
 </style>

@@ -22,6 +22,7 @@ export default class ServerSettingsInfo extends Vue {
         box-sizing: border-box;
         display: flex;
         margin: 2rem 0;
+        width: 17rem;
 
         .text {
             display: flex;
@@ -34,6 +35,8 @@ export default class ServerSettingsInfo extends Vue {
             font-size: 1.25em;
             font-weight: normal;
             margin: 0;
+            display: block;
+            line-height: 1.2;
         }
         .members {
             color: #B1A5CB;
