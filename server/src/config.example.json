@@ -1,9 +1,0 @@
-{
-    "port": 80,
-    "domains": {
-        "website": "cascadebot.org",
-        "www": "cascadebot.org",
-        "dashboard": "dashboard.cascadebot.org",
-        "api": "auth.cascadebot.org"
-    }
-}

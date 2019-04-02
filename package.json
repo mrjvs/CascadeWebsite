@@ -1,20 +1,21 @@
 {
-  "name": "cascadewebsite",
-  "version": "0.1.0",
-  "description": "webserver for cascadebot",
-  "main": "server/dist/main.js",
+  "name": "cascade-website",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "@types/es6-shim": "^0.31.37",
+    "@types/express": "^4.16.0",
+    "@types/node": "^10.9.4",
+    "express": "^4.16.3",
+    "typescript": "^3.0.3"
+  },
+  "devDependencies": {
+    "tslint": "^5.11.0"
+  },
   "scripts": {
-    "run": "node server/dist/main.js",
-    "build": "cd dashboard && npm run build && cd ../server && npm run build"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/CascadeBot/CascadeWebsite.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/CascadeBot/CascadeWebsite/issues"
-  },
-  "homepage": "https://github.com/CascadeBot/CascadeWebsite#readme"
+    "build": "tsc",
+    "run": "node ./dist/main.js",
+    "lint": "tslint --project tslint.json",
+    "prod": "NODE_ENV=production node ./dist/main.js"
+  }
 }
